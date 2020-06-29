@@ -1,6 +1,7 @@
 body
 {
     margin: 0;
+    width: 100%;
 
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
@@ -8,6 +9,7 @@ body
 
     color: #6c7279;
     background-color: #fff;
+    
 }
 
 /* Алгоритм подсчета размеров блоков с учетом padding  и т. д. */
@@ -49,6 +51,21 @@ p {
     left: 0;
     z-index: 1000;
 }
+
+
+.header.fixed {
+    height: auto;
+    position: fixed;
+
+    background-color: #31344e;
+}
+
+.header.fixed .header__inner {
+    padding: 15px 0;
+    border-bottom: 0;
+}
+
+
 
 .header__inner {
     display: flex;
@@ -108,7 +125,10 @@ p {
     background: 
         #31344e
         url("../images/intro-bg.jpg") 
-        no-repeat center / cover;
+        center no-repeat;
+
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 
@@ -258,6 +278,7 @@ p {
 }
 
 .works__photo {
+    min-width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -453,6 +474,16 @@ p {
 }
 
 
+.reviews__slider {
+    height: 500px;
+    overflow: hidden;
+}
+
+.reviews__slider .slick-initialized {
+    height: auto;
+}
+
+
 .reviews__item {
     display: -webkit-flex;
     display: -moz-flex;
@@ -465,6 +496,8 @@ p {
     -ms-flex-wrap: wrap;
     -o-flex-wrap: wrap;
     flex-wrap: wrap;
+
+    overflow: hidden;
 }
 
 .reviews__photo {
@@ -516,6 +549,52 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
+}
+
+
+.slick-dots {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 10px;
+    list-style: none;
+
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.slick-dots li {
+    margin: 0 5px;
+}
+
+
+.slick-dots button {
+    width: 11px;
+    height: 11px;
+
+    background: #fff;
+    border-radius: 50%;
+    border: 0;
+    opacity: .5;
+    padding: 0;
+
+    font-size: 0;
+    color: transparent;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.slick-dots .slick-active button {
+    opacity: 1;
 }
 
 
@@ -619,4 +698,270 @@ p {
 
 .copyright__text span {
     color: #fff;
+}
+
+
+/* Burger */
+
+.burger {
+    display: none;
+    padding: 9px 2px;
+
+    background: none;
+    border: 0;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+
+.burger__item {
+    display: block;
+    width: 30px;
+    height: 3px;
+
+    background-color: #fff;
+
+    font-size: 0;
+    color: transparent;
+
+    position: relative;
+}
+
+.burger__item:before,
+.burger__item:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+
+.burger__item:before {
+    top: -8px;
+}
+
+.burger__item:after {
+    bottom: -8px;
+}
+
+/* Media */
+
+
+@media(max-width: 1300px) {
+
+
+    /* Works */
+
+    .works__item {
+        width: 50%;
+    }
+
+}
+
+
+@media (max-width: 1200px) {
+    
+    /* Intro */
+
+    .intro__title {
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width: 990px) {
+    
+    /* Nav */
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+
+        background-color: #31344e;
+
+        text-align: center;
+
+    }
+
+    .nav.show {
+        display: flex;
+    }
+
+    .nav__link {
+        padding: 7px 15px;
+    }
+
+    /* Burger */
+
+    .burger {
+        display: block;
+    }
+
+    /* Features */
+
+    .features__item {
+        width: 50%;
+    }
+
+    /* Team */
+
+    .team__item {
+        width: 50%;
+
+        text-align: center;
+    }
+
+    .team__photo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* Team */
+
+    .social {
+        justify-content: center;
+    }
+
+
+    /* Reviews */
+
+    .reviews__photo {
+        width: 100%;
+        margin: 15px 0 40px;
+        overflow: hidden;
+    }
+
+    .reviews__content {
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 15px;
+    }
+
+}
+
+
+@media (max-width: 770px) {
+
+    
+    /* Intro */
+
+    .intro {
+        height: auto;
+        padding-top: 130px;
+        padding-bottom: 30px;
+    }
+
+    .intro__title {
+        font-size: 30px;
+    }
+
+    .intro__suptitle {
+        margin-bottom: 30px;
+
+        font-size: 16px;
+    }
+
+    /* Features */
+
+    .features {
+        margin: 40px 0;
+    }
+
+    .features__item {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* Works */
+
+    .works__item {
+        width: 100%;
+        height: 300px;
+    }
+
+
+    /* Team */
+
+    .team {
+        margin: 60px 0 30px;
+    }
+
+    .team__item {
+        width: 100%;
+    }
+
+
+
+    /* Reviews */
+
+    .reviews__text {
+        font-size: 20px;
+    }
+
+    .reviews__author {
+        font-size: 14px;
+    }
+
+
+    /* Button */
+
+    .btn--long {
+        min-width: 260px;
+    }
+
+
+    /* Download */
+
+    .download {
+        margin: 50px 0;
+    }
+
+    .download__title {
+        font-size: 22px;
+    }
+
+
+    /* Foteer */
+
+    .footer__inner {
+        padding: 30px 0;
+    }
+
+    .footer__block {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0; 
+
+        margin-bottom: 30px;
+    }
+
+    .footer__block:last-child {
+        margin-bottom: 0;
+    }
+
+
+}
+
+
+@media (max-width: 415px) {
+
+
+    /* Reviews */
+
+    .reviews__img {
+        right: -100px;
+    }
 }
